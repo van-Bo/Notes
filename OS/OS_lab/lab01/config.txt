@@ -1,0 +1,16 @@
+# Reader-Writer Process Configuration File
+# Parameter Format:
+#   id (int): The thread identifier
+#   type (char): 'R' for reader, 'W' for writer
+#   duration (int): The execution time in milliseconds
+0   R   500
+1   W   1000
+2   R   600
+3   W   1200 
+4   R   500
+5   W   1300
+6   R   400
+7   R   500
+8   W   1000
+9   W   2000
+10  R   500
