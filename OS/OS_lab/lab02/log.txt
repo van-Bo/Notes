@@ -1,0 +1,82 @@
+Banker's Algorithm Execution Started
+
+Reading configuration from file...
+Configuration loaded successfully.
+
+Current Resource Allocation:
+Process 0 - Max: [7 5 3] - Allocated: [0 1 0] - Need: [7 4 3]
+Process 1 - Max: [3 2 2] - Allocated: [2 0 0] - Need: [1 2 2]
+Process 2 - Max: [9 0 2] - Allocated: [3 0 2] - Need: [6 0 0]
+Process 3 - Max: [2 2 2] - Allocated: [2 1 1] - Need: [0 1 1]
+
+Available Resources:
+[10 5 7]
+----------------------------
+
+Process 1 requests resources: [0 2 2]
+Safe sequence found: 
+p1 
+p2 
+p3 
+p0 
+Success: The request was granted.
+
+Current Resource Allocation:
+Process 0 - Max: [7 5 3] - Allocated: [0 1 0] - Need: [7 4 3]
+Process 1 - Max: [3 2 2] - Allocated: [2 2 2] - Need: [1 0 0]
+Process 2 - Max: [9 0 2] - Allocated: [3 0 2] - Need: [6 0 0]
+Process 3 - Max: [2 2 2] - Allocated: [2 1 1] - Need: [0 1 1]
+
+Available Resources:
+[10 3 5]
+----------------------------
+
+Process 0 requests resources: [1 4 1]
+Error: The request exceeds the currently available system resources!
+----------------------------
+
+Process 2 requests resources: [3 2 0]
+Error: The request exceeds the process's maximum demand!
+----------------------------
+
+Process 0 requests resources: [7 3 3]
+Safe sequence found: 
+p1 
+p3 
+p0 
+p2 
+Success: The request was granted.
+
+Current Resource Allocation:
+Process 0 - Max: [7 5 3] - Allocated: [7 4 3] - Need: [0 1 0]
+Process 1 - Max: [3 2 2] - Allocated: [2 2 2] - Need: [1 0 0]
+Process 2 - Max: [9 0 2] - Allocated: [3 0 2] - Need: [6 0 0]
+Process 3 - Max: [2 2 2] - Allocated: [2 1 1] - Need: [0 1 1]
+
+Available Resources:
+[3 0 2]
+----------------------------
+
+Process 4 requests resources: [1 0 0]
+Error: Process 4 does not exist!
+----------------------------
+
+Process 1 requests resources: [1 0 0]
+Safe sequence found: 
+p1 
+p3 
+p0 
+p2 
+Success: The request was granted.
+Congratulation: this granted request can satisfy all max resources of  this process.
+The allocated resources to this process have been released!!!
+
+Current Resource Allocation:
+Process 0 - Max: [7 5 3] - Allocated: [7 4 3] - Need: [0 1 0]
+Process 1 - Max: [3 2 2] - Allocated: [0 0 0] - Need: [0 0 0]
+Process 2 - Max: [9 0 2] - Allocated: [3 0 2] - Need: [6 0 0]
+Process 3 - Max: [2 2 2] - Allocated: [2 1 1] - Need: [0 1 1]
+
+Available Resources:
+[5 2 4]
+----------------------------
