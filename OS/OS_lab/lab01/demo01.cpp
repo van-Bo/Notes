@@ -1,6 +1,7 @@
 /*
 * Filename：demo01.cpp
 * Created: 2025-05-01
+* Modified: 2025-05-08
 * Description: Implementation of Reader-Writer problem with reader priority
 // NOTE 作用域限制 {} 和 unlock() 的等效
     - std::unique_lock<std::mutex> 采用 RALL (资源获取即初始化)原则，即它在变量作用域结束时自动释放锁，
@@ -18,6 +19,7 @@
 #include <chrono>
 #include <fstream>
 #include <sstream>
+#include <Windows.h>
 
 std::mutex resourceMutex;
 std::mutex readerCountMutex;
@@ -35,7 +37,7 @@ void reader(int id, int time) {
     // 读者正在读取
     auto now = std::chrono::system_clock::now();
     auto now_c = std::chrono::system_clock::to_time_t(now);
-    std::printf("[%lld] Reader %d is reading...\n", now_c, id); // 加盖时间戳
+    std::printf("[%lld] Reader %d (Thread ID: 0x%lx) is reading...\n", now_c, id, GetCurrentThreadId());
     std::this_thread::sleep_for(std::chrono::milliseconds(time));
 
     {
@@ -51,7 +53,7 @@ void writer(int id, int time) {
     std::unique_lock<std::mutex> lock(resourceMutex);  // 写者需要独占资源
     auto now = std::chrono::system_clock::now();
     auto now_c = std::chrono::system_clock::to_time_t(now); // 加盖时间戳
-    std::printf("[%lld] Writer %d is writing...\n", now_c, id);
+    std::printf("[%lld] Writer %d (Thread ID: 0x%lx) is writing...\n", now_c, id, GetCurrentThreadId());
     std::this_thread::sleep_for(std::chrono::milliseconds(time));
 }
 
