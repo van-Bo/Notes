@@ -168,6 +168,3 @@
   $M 3F 006D6C    ; PC->AR, PC¼Ó1
 
 ; //** End Of MicroController Data **//
-
-
-

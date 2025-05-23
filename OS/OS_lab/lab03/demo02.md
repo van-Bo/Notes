@@ -1,6 +1,9 @@
-# test01
+# 进程的控制
 
-## 源代码
+## test01
+
+### test01 源代码
+
 ```cpp
 #include <stdio.h>
 #include <unistd.h>
@@ -38,9 +41,10 @@ int main() {
 }
 ```
 
-# test02
+## test02
 
-## 源代码
+### test02 源代码
+
 ```cpp
 #include <stdio.h>
 #include <unistd.h>
@@ -88,31 +92,33 @@ int main() {
 }
 ```
 
-# 测试 test01 test02
+## test01 test02 测试
 
-## 测试结果展示
+### test01 test02 测试结果展示
 
-<img src="./images/none lockf_test01.png" style="width=50%">
-<img src="./images/lockf_test02.png" style="width=50%">
-
+![resultForTest01](./images/none%20lockf_test01.png)
+![resultForTest02](./images/lockf_test02.png)
 
 ## test01 与 test02 的测试结果分析
 
 1. 有锁、无锁版本的输出相似，很可能是以下因素的组合：
-- 进程执行任务非常快速
-- 操作系统调度的某种倾向性
-- `fflush` 在一定程度上减少了缓冲带来的交错
-- 短输出内容使得竞争窗口的概率极小
+
+    - 进程执行任务非常快速
+    - 操作系统调度的某种倾向性
+    - `fflush` 在一定程度上减少了缓冲带来的交错
+    - 短输出内容使得竞争窗口的概率极小
 
 2. 为暴露无锁版本的潜在问题，修改方案如下：
-- 增加每个进程的输出量（test03、test04 采用方式）
-- 引入延时
+
+    - 增加每个进程的输出量（test03、test04 采用方式）
+    - 引入延时
 
 ---
 
-# test03
+## test03
 
-## 源代码
+### test03 源代码
+
 ```cpp
 #include <stdio.h>
 #include <unistd.h>
@@ -219,9 +225,10 @@ int main() {
 }
 ```
 
-# test04
+## test04
 
-## 源代码
+### test04 源代码
+
 ```cpp
 #include <stdio.h>
 #include <unistd.h>
@@ -305,10 +312,9 @@ int main() {
 }
 ```
 
-# 测试 test03 test04
+## test03 test04 测试
 
-## 测试结果展示
+### test03 test04 测试结果展示
 
-<img src="./images/none lockf_test03.png" style="width=50%">
-<img src="./images/lockf_test04.png" style="width=50%">
-
+![resultForTest03](./images/none%20lockf_test03.png)
+![resultForTest04](./images/lockf_test04.png)
