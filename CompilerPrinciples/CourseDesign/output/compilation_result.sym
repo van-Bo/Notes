@@ -1,0 +1,164 @@
+--- Symbol Table for Expression #1: "10 + 2 * 6" ---
+
+--- Symbol Table ---
+| Name	| Type	|
+--------------------
+| t0	| int	|
+| t1	| int	|
+| t2	| int	|
+| t3	| int	|
+| t4	| int	|
+--------------------
+
+--- Symbol Table for Expression #2: "(10 + 2) * 6" ---
+
+--- Symbol Table ---
+| Name	| Type	|
+--------------------
+| t0	| int	|
+| t1	| int	|
+| t2	| int	|
+| t3	| int	|
+| t4	| int	|
+--------------------
+
+--- Symbol Table for Expression #3: "100 / 10 / 2" ---
+
+--- Symbol Table ---
+| Name	| Type	|
+--------------------
+| t0	| int	|
+| t1	| int	|
+| t2	| int	|
+| t3	| int	|
+| t4	| int	|
+--------------------
+
+--- Symbol Table for Expression #4: "10 - 2 - 3" ---
+
+--- Symbol Table ---
+| Name	| Type	|
+--------------------
+| t0	| int	|
+| t1	| int	|
+| t2	| int	|
+| t3	| int	|
+| t4	| int	|
+--------------------
+
+--- Symbol Table for Expression #5: "-5 * (-2 + 1)" ---
+
+--- Symbol Table ---
+| Name	| Type	|
+--------------------
+| t0	| int	|
+| t1	| int	|
+| t2	| int	|
+| t3	| int	|
+| t4	| int	|
+| t5	| int	|
+| t6	| int	|
+--------------------
+
+--- Symbol Table for Expression #6: "8 >> 1 + 2" ---
+
+--- Symbol Table ---
+| Name	| Type	|
+--------------------
+| t0	| int	|
+| t1	| int	|
+| t2	| int	|
+| t3	| int	|
+| t4	| int	|
+--------------------
+
+--- Symbol Table for Expression #7: "(8 >> 1) + 2" ---
+
+--- Symbol Table ---
+| Name	| Type	|
+--------------------
+| t0	| int	|
+| t1	| int	|
+| t2	| int	|
+| t3	| int	|
+| t4	| int	|
+--------------------
+
+--- Symbol Table for Expression #8: "10 | 3 & 5" ---
+
+--- Symbol Table ---
+| Name	| Type	|
+--------------------
+| t0	| int	|
+| t1	| int	|
+| t2	| int	|
+| t3	| int	|
+| t4	| int	|
+--------------------
+
+--- Symbol Table for Expression #9: "(10 | 3) & 5" ---
+
+--- Symbol Table ---
+| Name	| Type	|
+--------------------
+| t0	| int	|
+| t1	| int	|
+| t2	| int	|
+| t3	| int	|
+| t4	| int	|
+--------------------
+
+--- Symbol Table for Expression #10: "255 & 15 << 1" ---
+
+--- Symbol Table ---
+| Name	| Type	|
+--------------------
+| t0	| int	|
+| t1	| int	|
+| t2	| int	|
+| t3	| int	|
+| t4	| int	|
+--------------------
+
+--- Symbol Table for Expression #11: "0xFF + 0b1010" ---
+
+--- Symbol Table ---
+| Name	| Type	|
+--------------------
+| t0	| int	|
+| t1	| int	|
+| t2	| int	|
+--------------------
+
+--- Symbol Table for Expression #12: "100 * 0x10" ---
+
+--- Symbol Table ---
+| Name	| Type	|
+--------------------
+| t0	| int	|
+| t1	| int	|
+| t2	| int	|
+--------------------
+
+--- Symbol Table for Expression #13: "10 / 0" ---
+
+--- Symbol Table ---
+| Name	| Type	|
+--------------------
+| t0	| int	|
+| t1	| int	|
+| t2	| int	|
+--------------------
+
+--- Symbol Table for Expression #14: "5 * ( 2 + 3" ---
+Error: Parser error: Unexpected token. Expected RPAREN, but got EOF
+
+--- Symbol Table for Expression #15: "10 & & 5" ---
+Error: Parser error: Invalid syntax in factor.
+
+--- Symbol Table for Expression #16: "@ + 1" ---
+Error: Lexer error: Invalid character '@' at position 0
+
+--- Symbol Table for Expression #17: "10 +" ---
+Error: Parser error: Invalid syntax in factor.
+

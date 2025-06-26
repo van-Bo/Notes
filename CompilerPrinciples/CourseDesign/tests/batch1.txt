@@ -1,0 +1,44 @@
+# =============================================================================
+#                  Compiler Principle - Test Suite
+# ==============================================================================
+#
+# This file demonstrates the two modes of the test runner:
+#
+# 1. Self-Assessment Mode:
+#    Lines ending with `// expect: <value>` or `// expect: error` are treated
+#    as formal test cases. The result will be checked, and it will be
+#    counted in the final PASS/FAIL summary.
+#
+# 2. Normal Calculator Mode:
+#    Lines WITHOUT an `// expect:` tag are treated as simple expressions to
+#    be calculated. The result will be displayed, but it will NOT be
+#    counted in the test summary. This is useful for quick, one-off calculations.
+#
+# =============================================================================
+
+# This is a comment, the program should handle empty/commented lines.
+
+# --- Basic Arithmetic & Precedence ---
+10 + 2 * 6      // expect: 22
+(10 + 2) * 6    // expect: 72
+100 / 10 / 2    // expect: 5
+10 - 2 - 3      // expect: 5
+-5 * (-2 + 1)   // expect: 5
+
+# --- Logic and Shift Operations ---
+8 >> 1 + 2      // expect: 1
+(8 >> 1) + 2    // expect: 6
+10 | 3 & 5      // expect: 11
+(10 | 3) & 5    // expect: 1
+255 & 15 << 1   // expect: 30
+
+# --- Mixed Base Numbers ---
+0xFF + 0b1010   // expect: 265
+100 * 0x10      // expect: 1600
+
+# --- Deliberate Errors for Testing ---
+10 / 0          // expect: error
+5 * ( 2 + 3     // expect: error
+10 & & 5        // expect: error
+@ + 1           // expect: error
+10 +            // expect: error

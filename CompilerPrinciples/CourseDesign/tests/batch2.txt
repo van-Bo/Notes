@@ -1,0 +1,90 @@
+# =============================================================================
+#                  Compiler Principle - Test Suite
+# ==============================================================================
+#
+# This file demonstrates the two modes of the test runner:
+#
+# 1. Self-Assessment Mode:
+#    Lines ending with `// expect: <value>` or `// expect: error` are treated
+#    as formal test cases. The result will be checked, and it will be
+#    counted in the final PASS/FAIL summary.
+#
+# 2. Normal Calculator Mode:
+#    Lines WITHOUT an `// expect:` tag are treated as simple expressions to
+#    be calculated. The result will be displayed, but it will NOT be
+#    counted in the test summary. This is useful for quick, one-off calculations.
+#
+# =============================================================================
+
+# --- Complex Test Cases for Robustness Validation ---
+
+# Test 1: Deeply nested parentheses and mixed high-precedence operators
+# Expected: -60
+# Calculation: (5 * (10 / (20 / 4))) * -6 -> (5 * (10 / 5)) * -6 -> (5 * 2) * -6 -> 10 * -6 -> -60
+(5 * (10 / (20 / 4))) * -6      // expect: -60
+
+# Test 2: Right-to-left associativity of unary minus
+# Expected: -10
+# Calculation: --++--10 -> --++(-10) -> --+(-10) -> -(-10) -> 10 -- Hmm, C++ doesn't have ++ as a prefix operator in this context. Let's use simple unary.
+# Let's use chained unary minus. ---10 -> -(-(-10)) -> -(10) -> -10
+---10                           // expect: -10
+
+# Test 3: Complex bitwise operations precedence
+# Expected: 101
+# Calculation: 100 | 15 & 31 + 4 >> 1 -> 100 | 15 & (35) >> 1 -> 100 | 15 & 17 -> 100 | (1) -> 101
+# 31+4 = 35 (0b100011)
+# 35 >> 1 = 17 (0b010001)
+# 15 & 17 = (0b1111) & (0b10001) = 0b00001 = 1
+# 100 | 1 = 101.
+100 | 15 & 31 + 4 >> 1          // expect: 101
+
+# Test 4: Explicit parentheses overriding bitwise precedence
+# Expected: 17
+# Calculation: ((100 | 15) & (31 + 4)) >> 1 -> (111 & 35) >> 1 -> 35 >> 1 -> 17
+((100 | 15) & (31 + 4)) >> 1    // expect: 17
+
+# Test 5: Mixed base arithmetic with large numbers
+# Expected: 65535
+# Calculation: 0xFFFF + (0b1010 - 10) -> 65535 + (10 - 10) -> 65535 + 0 -> 65535
+0xFFFF + (0b1010 - 10)          // expect: 65535
+
+# Test 6: Left-to-right associativity of same-precedence operators
+# Expected: 5
+# Calculation: 100 / 10 * 2 / 4 -> 10 * 2 / 4 -> 20 / 4 -> 5
+100 / 10 * 2 / 4                // expect: 5
+
+# Test 7: Shift operations with arithmetic on the right-hand side
+# Expected: 25
+# Calculation: 100 >> (4 / 2) -> 100 >> 2 -> 25
+100 >> (4 / 2)                  // expect: 25
+
+# Test 8: A very long expression combining everything
+# Expected: 255
+# Calculation: (0x100 & 0b11111111) | ( (10+20-15) * 2 / 10) + (1 << (8 - 2*2))
+# -> (256 & 255) | (15 * 2 / 10) + (1 << 4)
+# -> 255 | (30 / 10) + 16
+# -> 255 | 3 + 16
+# -> 255 | 19
+# -> 255
+(0x100 - 1 & 0b11111111) | ( (10+20-15) * 2 / 10) + (1 << (8 - 2*2))    // expect: 255
+
+# Test 9: Division resulting in zero, followed by other operations
+# Expected: 10
+# Calculation: 5 / 10 * 100 + 10 -> 0 * 100 + 10 -> 0 + 10 -> 10
+5 / 10 * 100 + 10
+
+# Test 10: Edge case with minimum and maximum integer values (conceptual)
+# This mainly tests if the underlying int type overflows, though with standard ints this is hard to test without MAX_INT.
+# Let's test a large number calculation.
+# Expected: 1000000000
+1000 * 1000 * 1000               // expect: 1000000000
+
+# Test 11: Logic operators returning zero
+# Expected: 0
+# Calculation: (0b1010 & 0b0101) | (0x0F & 0xF0) -> 0 | 0 -> 0
+(0b1010 & 0b0101) | (0x0F & 0xF0)   // expect: 0
+
+# Test 12: Expression that looks complex but simplifies easily
+# Expected: 1
+# Calculation: (12345 - 12344) * ( (500 / 250) - 1 ) -> 1 * (2 - 1) -> 1 * 1 -> 1
+(12345 - 12344) * ( (500 / 250) - 1 )

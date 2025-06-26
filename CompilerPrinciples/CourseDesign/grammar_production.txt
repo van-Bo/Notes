@@ -1,0 +1,62 @@
+# 程序员计算器 - 完整文法产生式 (EBNF)
+
+# -----------------------------------------------------------------------------
+# EBNF (扩展巴科斯-瑙尔范式) 元语言规则注释:
+#
+# | (竖线)  : 表示“或”。例如 A | B 的意思是“匹配 A 或者匹配 B”。
+# () (括号)  : 用于将多个元素组合成一个单一的分组，以便应用重复操作符。
+# * (星号)  : 表示“重复0次或多次”。它作用于其前面的单个元素或分组。
+#             例如 a* 表示可以匹配空字符串、"a"、"aa"、"aaa" 等。
+# -----------------------------------------------------------------------------
+
+"( )" > "+ -(一元运算符 Unary)" > "* /" > "+ -(二元运算符 plus sub)" > "<< >>(Bitwise Shift)" > "&" > "|"
+
+# --- 总入口 ---
+# 一个完整的表达式(expr)被定义为优先级最低的“按位或”表达式。
+expr          : bitwise_or
+
+
+# --- 优先级 5 (最低): 按位或 | ---
+# 一个“按位或”表达式，是由一个“按位与”表达式(bitwise_and)开头，
+# 后面可以跟着0个或多个由“或”符号(OR)连接的另一个“按位与”表达式。
+# 产生式: bitwise_or -> bitwise_and (OR bitwise_and)*
+bitwise_or    : bitwise_and (OR bitwise_and)*
+
+
+# --- 优先级 4: 按位与 & ---
+# 一个“按位与”表达式，是由一个“移位”表达式(shift_expr)开头，
+# 后面可以跟着0个或多个由“与”符号(AND)连接的另一个“移位”表达式。
+# 产生式: bitwise_and -> shift_expr (AND shift_expr)*
+bitwise_and   : shift_expr (AND shift_expr)*
+
+
+# --- 优先级 3: 移位 << >> ---
+# 一个“移位”表达式，是由一个“加减”表达式(add_expr)开头，
+# 后面可以跟着0个或多个由“左移”(LSHIFT)或“右移”(RSHIFT)符号
+# 连接的另一个“加减”表达式。
+# 产生式: shift_expr -> add_expr ((LSHIFT | RSHIFT) add_expr)*
+shift_expr    : add_expr ((LSHIFT | RSHIFT) add_expr)*
+
+
+# --- 优先级 2: 加减 + - ---
+# 一个“加减”表达式，是由一个“乘除”表达式(mul_expr)开头，
+# 后面可以跟着0个或多个由“加”(PLUS)或“减”(MINUS)符号
+# 连接的另一个“乘除”表达式。
+# 产生式: add_expr -> mul_expr ((PLUS | MINUS) mul_expr)*
+add_expr      : mul_expr ((PLUS | MINUS) mul_expr)*
+
+
+# --- 优先级 1: 乘除 * / ---
+# 一个“乘除”表达式，是由一个“因子”(factor)开头，
+# 后面可以跟着0个或多个由“乘”(MUL)或“除”(DIV)符号
+# 连接的另一个“因子”。
+# 产生式: mul_expr -> factor ((MUL | DIV) factor)*
+mul_expr      : factor ((MUL | DIV) factor)*
+
+
+# --- 优先级 0 (最高): 因子 (基础单元) ---
+# 一个“因子”，是表达式中最基本的、不可再分的单元。
+# 它可以是一个整数(INTEGER)，或者是一个由括号包裹的完整表达式(LPAREN expr RPAREN)，
+# 或者是一个一元正/负号后面跟着的另一个因子。
+# 产生式: factor -> INTEGER | LPAREN expr RPAREN | (PLUS | MINUS) factor
+factor        : INTEGER | LPAREN expr RPAREN | (PLUS | MINUS) factor
