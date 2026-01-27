@@ -1,0 +1,50 @@
+Nov 19 15:52:18.514 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Nov 19 15:52:18.514 HYPERVISOR: Started on IP = localhost, TCP port = 51254.
+Nov 19 15:52:19.002 HYPERVISOR: exec_cmd: hypervisor version 
+Nov 19 15:52:19.002 HYPERVISOR: exec_cmd: hypervisor working_dir E:\ComputerNetwork_LabEnv\GNS3_Projects\demo02\project-files\dynamips 
+Nov 19 15:52:19.002 GENERAL: working_dir=E:\ComputerNetwork_LabEnv\GNS3_Projects\demo02\project-files\dynamips
+Nov 19 15:52:19.002 HYPERVISOR: exec_cmd: hypervisor working_dir E:\ComputerNetwork_LabEnv\GNS3_Projects\demo02\project-files\dynamips\6663db7c-fee2-4f64-8313-b29c124de44f 
+Nov 19 15:52:19.002 GENERAL: working_dir=E:\ComputerNetwork_LabEnv\GNS3_Projects\demo02\project-files\dynamips\6663db7c-fee2-4f64-8313-b29c124de44f
+Nov 19 15:52:19.002 HYPERVISOR: exec_cmd: vm create ESW2 4 c3600 
+Nov 19 15:52:19.002 VM: VM ESW2 created.
+Nov 19 15:52:19.002 HYPERVISOR: exec_cmd: vm set_con_tcp_port ESW2 5004 
+Nov 19 15:52:19.002 HYPERVISOR: exec_cmd: c3600 get_mac_addr ESW2 
+Nov 19 15:52:19.002 HYPERVISOR: exec_cmd: c3600 set_chassis ESW2 3660 
+Nov 19 15:52:19.002 HYPERVISOR: exec_cmd: vm set_disk0 ESW2 1 
+Nov 19 15:52:19.002 HYPERVISOR: exec_cmd: vm set_exec_area ESW2 64 
+Nov 19 15:52:19.002 HYPERVISOR: exec_cmd: vm get_status ESW2 
+Nov 19 15:52:19.002 HYPERVISOR: exec_cmd: vm set_idle_pc ESW2 0x606071f8 
+Nov 19 15:52:19.019 HYPERVISOR: exec_cmd: vm set_ios ESW2 C:/Users/lenovo/GNS3/images/IOS/c3660-a3jk9s-mz.124-25d.image 
+Nov 19 15:52:19.019 HYPERVISOR: exec_cmd: c3600 set_mac_addr ESW2 cc04.8688.0000 
+Nov 19 15:52:19.019 HYPERVISOR: exec_cmd: vm set_nvram ESW2 256 
+Nov 19 15:52:19.019 HYPERVISOR: exec_cmd: vm set_ram ESW2 192 
+Nov 19 15:52:19.019 HYPERVISOR: exec_cmd: vm get_status ESW2 
+Nov 19 15:52:19.019 HYPERVISOR: exec_cmd: vm slot_add_binding ESW2 1 0 NM-16ESW 
+Nov 19 15:52:22.540 HYPERVISOR: exec_cmd: nio create_udp udp-b93cb8d7-e038-4f5d-8292-e847bbab710e 10016 127.0.0.1 10017 
+Nov 19 15:52:22.790 HYPERVISOR: exec_cmd: vm slot_add_nio_binding ESW2 1 11 udp-b93cb8d7-e038-4f5d-8292-e847bbab710e 
+Nov 19 15:52:22.790 HYPERVISOR: exec_cmd: vm get_status ESW2 
+Nov 19 16:36:48.772 HYPERVISOR: exec_cmd: vm set_ghost_status ESW2 2 
+Nov 19 16:36:48.772 HYPERVISOR: exec_cmd: vm set_ghost_file ESW2 E:\ComputerNetwork_LabEnv\GNS3_Projects\demo02\project-files\dynamips\c3660-a3jk9s-mz.124-25d.image-192.ghost 
+Nov 19 16:36:48.772 HYPERVISOR: exec_cmd: vm get_status ESW2 
+Nov 19 16:36:48.788 HYPERVISOR: exec_cmd: vm set_config ESW2 configs\i4_startup-config.cfg 
+Nov 19 16:36:48.788 HYPERVISOR: exec_cmd: vm start ESW2 
+Nov 19 16:49:03.322 HYPERVISOR: exec_cmd: vm get_status ESW2 
+Nov 19 16:49:03.338 HYPERVISOR: exec_cmd: vm stop ESW2 
+Nov 19 16:49:03.448 VM: VM ESW2 shutdown.
+Nov 19 16:49:03.448 HYPERVISOR: exec_cmd: vm extract_config ESW2 
+Nov 19 16:59:42.822 HYPERVISOR: exec_cmd: vm set_ghost_status ESW2 2 
+Nov 19 16:59:42.822 HYPERVISOR: exec_cmd: vm set_ghost_file ESW2 E:\ComputerNetwork_LabEnv\GNS3_Projects\demo02\project-files\dynamips\c3660-a3jk9s-mz.124-25d.image-192.ghost 
+Nov 19 16:59:42.822 HYPERVISOR: exec_cmd: vm get_status ESW2 
+Nov 19 16:59:42.822 HYPERVISOR: exec_cmd: vm set_config ESW2 configs\i4_startup-config.cfg 
+Nov 19 16:59:42.822 HYPERVISOR: exec_cmd: vm start ESW2 
+Nov 19 17:31:08.929 HYPERVISOR: exec_cmd: vm get_status ESW2 
+Nov 19 17:31:08.929 HYPERVISOR: exec_cmd: vm stop ESW2 
+Nov 19 17:31:09.033 VM: VM ESW2 shutdown.
+Nov 19 17:31:09.041 HYPERVISOR: exec_cmd: vm extract_config ESW2 
+Nov 19 17:31:09.895 HYPERVISOR: exec_cmd: vm get_status ESW2 
+Nov 19 17:31:09.896 HYPERVISOR: exec_cmd: vm extract_config ESW2 
+Nov 19 17:31:09.900 HYPERVISOR: exec_cmd: vm delete ESW2 
+Nov 19 17:31:09.900 VM: VM ESW2 destroyed.
+Nov 19 17:31:09.901 HYPERVISOR: exec_cmd: hypervisor stop 
+Nov 19 17:31:10.293 HYPERVISOR: Stopped.
+Nov 19 17:31:10.293 GENERAL: reset done.

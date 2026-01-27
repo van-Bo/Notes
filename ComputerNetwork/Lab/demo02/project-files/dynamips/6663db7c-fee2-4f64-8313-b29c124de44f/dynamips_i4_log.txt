@@ -1,0 +1,52 @@
+Nov 19 15:52:17.930 HYPERVISOR: Release 0.2.17-x86/Windows (tag 2017072410)
+Nov 19 15:52:17.941 HYPERVISOR: Started on IP = localhost, TCP port = 51251.
+Nov 19 15:52:18.450 HYPERVISOR: exec_cmd: hypervisor version 
+Nov 19 15:52:18.450 HYPERVISOR: exec_cmd: hypervisor working_dir E:\ComputerNetwork_LabEnv\GNS3_Projects\demo02\project-files\dynamips 
+Nov 19 15:52:18.450 GENERAL: working_dir=E:\ComputerNetwork_LabEnv\GNS3_Projects\demo02\project-files\dynamips
+Nov 19 15:52:18.450 HYPERVISOR: exec_cmd: hypervisor working_dir E:\ComputerNetwork_LabEnv\GNS3_Projects\demo02\project-files\dynamips\fe709b11-891d-4afe-851e-2f5defe00709 
+Nov 19 15:52:18.450 GENERAL: working_dir=E:\ComputerNetwork_LabEnv\GNS3_Projects\demo02\project-files\dynamips\fe709b11-891d-4afe-851e-2f5defe00709
+Nov 19 15:52:18.450 HYPERVISOR: exec_cmd: vm create R2 3 c3745 
+Nov 19 15:52:18.450 VM: VM R2 created.
+Nov 19 15:52:18.450 HYPERVISOR: exec_cmd: vm set_con_tcp_port R2 5003 
+Nov 19 15:52:18.450 HYPERVISOR: exec_cmd: c3745 get_mac_addr R2 
+Nov 19 15:52:18.450 HYPERVISOR: exec_cmd: vm set_disk0 R2 0 
+Nov 19 15:52:18.450 HYPERVISOR: exec_cmd: vm set_exec_area R2 64 
+Nov 19 15:52:18.450 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 19 15:52:18.450 HYPERVISOR: exec_cmd: vm set_idle_pc R2 0x60aa1da0 
+Nov 19 15:52:18.455 HYPERVISOR: exec_cmd: vm set_ios R2 C:/Users/lenovo/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Nov 19 15:52:18.455 HYPERVISOR: exec_cmd: c3745 set_mac_addr R2 c403.88c0.0000 
+Nov 19 15:52:18.455 HYPERVISOR: exec_cmd: vm set_nvram R2 256 
+Nov 19 15:52:18.455 HYPERVISOR: exec_cmd: vm set_ram R2 256 
+Nov 19 15:52:18.455 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 19 15:52:18.455 HYPERVISOR: exec_cmd: vm slot_add_binding R2 0 16 WIC-2T 
+Nov 19 15:52:22.274 HYPERVISOR: exec_cmd: nio create_udp udp-f2c4a0ad-1f20-4f78-96ec-c56a783ce2e7 10010 127.0.0.1 10011 
+Nov 19 15:52:22.509 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R2 0 16 udp-f2c4a0ad-1f20-4f78-96ec-c56a783ce2e7 
+Nov 19 15:52:22.509 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 19 16:36:48.757 HYPERVISOR: exec_cmd: vm set_ghost_status R2 2 
+Nov 19 16:36:48.772 HYPERVISOR: exec_cmd: vm set_ghost_file R2 E:\ComputerNetwork_LabEnv\GNS3_Projects\demo02\project-files\dynamips\c3745-adventerprisek9-mz.124-25d.image-256.ghost 
+Nov 19 16:36:48.772 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 19 16:36:48.772 HYPERVISOR: exec_cmd: vm set_config R2 configs\i3_startup-config.cfg 
+Nov 19 16:36:48.772 HYPERVISOR: exec_cmd: vm start R2 
+Nov 19 16:49:03.237 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 19 16:49:03.237 HYPERVISOR: exec_cmd: vm stop R2 
+Nov 19 16:49:03.322 VM: VM R2 shutdown.
+Nov 19 16:49:03.322 HYPERVISOR: exec_cmd: vm extract_config R2 
+Nov 19 16:59:42.525 HYPERVISOR: exec_cmd: vm set_ghost_status R2 2 
+Nov 19 16:59:42.525 HYPERVISOR: exec_cmd: vm set_ghost_file R2 E:\ComputerNetwork_LabEnv\GNS3_Projects\demo02\project-files\dynamips\c3745-adventerprisek9-mz.124-25d.image-256.ghost 
+Nov 19 16:59:42.525 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 19 16:59:42.540 HYPERVISOR: exec_cmd: vm set_config R2 configs\i3_startup-config.cfg 
+Nov 19 16:59:42.540 HYPERVISOR: exec_cmd: vm start R2 
+Nov 19 17:17:03.519 HYPERVISOR: exec_cmd: vm set_ios R2 C:/Users/lenovo/GNS3/images/IOS/c3745-adventerprisek9-mz.124-25d.image 
+Nov 19 17:26:13.547 HYPERVISOR: exec_cmd: vm extract_config R2 
+Nov 19 17:26:13.550 HYPERVISOR: exec_cmd: vm extract_config R2 
+Nov 19 17:31:08.783 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 19 17:31:08.783 HYPERVISOR: exec_cmd: vm stop R2 
+Nov 19 17:31:08.922 VM: VM R2 shutdown.
+Nov 19 17:31:08.923 HYPERVISOR: exec_cmd: vm extract_config R2 
+Nov 19 17:31:09.894 HYPERVISOR: exec_cmd: vm get_status R2 
+Nov 19 17:31:09.896 HYPERVISOR: exec_cmd: vm extract_config R2 
+Nov 19 17:31:09.897 HYPERVISOR: exec_cmd: vm delete R2 
+Nov 19 17:31:09.897 VM: VM R2 destroyed.
+Nov 19 17:31:09.900 HYPERVISOR: exec_cmd: hypervisor stop 
+Nov 19 17:31:09.983 HYPERVISOR: Stopped.
+Nov 19 17:31:09.983 GENERAL: reset done.
