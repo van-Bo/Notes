@@ -43,6 +43,13 @@
 
 ---
 
+## Logisim 虚拟仿真
+
+使用 Logisim 工具，参考实验指导书，进行虚拟仿真。
+
+* `Mars4_5.jar`、`cache.asm`、`Camera.jar`是虚拟仿真 Cache 映射、性能的环境工具，具体使用参考实验指导书
+* `alu.circ` 是 Logisim 绘制电路的工程文件
+
 ## 🚀 快速开始 (Quick Start)
 
 1. **查阅复习资料**: 进入 `CourseWareScreenShot/` 目录下对应的章节文件夹，查看重点与习题截图。
