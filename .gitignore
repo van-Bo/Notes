@@ -1,2 +1,14 @@
 /OS/OS_lab/lab01/output
 /.vscode
+
+# --- Logseq Noise Filters ---
+# 忽略所有备份文件夹
+**/logseq/bak/
+**/logseq/.recycle/
+
+# 忽略自动生成的数据库和元数据
+**/logseq/.tdb/
+**/logseq/metadata.edn
+
+# (可选) 不打算在 GitHub 上查看白板索引
+**/whiteboards/
