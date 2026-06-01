@@ -10,5 +10,16 @@
 **/logseq/.tdb/
 **/logseq/metadata.edn
 
-# (可选) 不打算在 GitHub 上查看白板索引
+# 不打算在 GitHub 上查看白板索引
 **/whiteboards/
+# --- GNS3 Lab Filters ---
+# Cisco IOS 镜像（专有软件，不应入库）
+**/ComputerNetwork/Lab/IOS/
+# Dynamips 运行时生成文件（可被 GNS3 自动重建）
+**/project-files/dynamips/*/dynamips_*_log.txt
+**/project-files/dynamips/*/dynamips_*_stdout.txt
+**/project-files/dynamips/*/c3600_*_bootflash
+**/project-files/dynamips/*/c3600_*_disk0
+**/project-files/dynamips/*/c3600_*_nvram
+# VPCS 运行日志
+**/project-files/vpcs/*/vpcs.log
